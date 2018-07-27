@@ -6,19 +6,14 @@ function getText() {
     // *********************
     // under the proto you could see "text" or "json".In our case "text". That return a promise too. so use one more then.
     fetch('test.txt')
-        .then(function(res) {
-            return res.text();
-
-        })
-        .then(function(data) {
+        .then(res => res.text())
+        .then(data => {
             console.log(data);
             document.getElementById('output').innerHTML = data;
 
         })
-        .catch(function(err) {
-            console.log('Error');
-
-        })
+        .catch(err =>
+            console.log('Error'));
 }
 
 // Get local json file data 
@@ -26,11 +21,8 @@ function getJson() {
     // *********************
     // under the proto you could see "text" or "json".In our case "text". That return a promise too. so use one more then.
     fetch('posts.json')
-        .then(function(res) {
-            return res.json();
-
-        })
-        .then(function(data) {
+        .then(res => res.json())
+        .then(data => {
             console.log(data);
             let output = '';
             data.forEach(function(post) {
@@ -40,10 +32,8 @@ function getJson() {
             document.getElementById('output').innerHTML = output;
 
         })
-        .catch(function(err) {
-            console.log('Error');
-
-        })
+        .catch(err =>
+            console.log('Error'));
 }
 
 
@@ -52,11 +42,8 @@ function getExternal() {
     // *********************
     // under the proto you could see "text" or "json".In our case "text". That return a promise too. so use one more then.
     fetch('https://api.github.com/users')
-        .then(function(res) {
-            return res.json();
-
-        })
-        .then(function(data) {
+        .then(res => res.json())
+        .then(data => {
             console.log(data);
             let output = '';
             data.forEach(function(user) {
@@ -66,8 +53,8 @@ function getExternal() {
             document.getElementById('output').innerHTML = output;
 
         })
-        .catch(function(err) {
-            console.log('Error');
+        .catch(err =>
+            console.log('Error'));
 
-        })
+
 }
